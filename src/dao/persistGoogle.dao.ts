@@ -57,7 +57,7 @@ class GoogleDao {
     };
 
     console.log('putParams:', JSON.stringify(putParams));
-    return await this.dynamoDbClient.put(putParams).promise();
+    return this.dynamoDbClient.put(putParams).promise();
   }
 }
 export { GoogleDao };
