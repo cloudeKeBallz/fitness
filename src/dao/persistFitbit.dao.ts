@@ -50,7 +50,7 @@ class FitbitDao {
         date: date,
       } as any,
     };
-    return await this.dynamoDbClient.put(putParams).promise();
+    return this.dynamoDbClient.put(putParams).promise();
   }
 }
 export { FitbitDao };
