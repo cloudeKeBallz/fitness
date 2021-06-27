@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const moment = require("moment");
 const uuid = require("uuid");
+import pino from 'pino';
 const persistGoogle_dao_1 = require("../src/dao/persistGoogle.dao");
 async function calculate(type, dataset, userId) {
     let result;
@@ -13,6 +14,7 @@ async function calculate(type, dataset, userId) {
             let endTime = moment(pt.endTimeNanos / 1000000).format('dddd MMMM Do YYYY, h:mm:ss a');
             let stepsCount = pt.value[0].intVal || pt.value[0].fpVal;
             result = googleDao.post(uuid1, userId, startTime, endTime, stepsCount, type);
+            pino.name='sample';
             console.log({
                 startTime: startTime,
                 endTime: endTime,
